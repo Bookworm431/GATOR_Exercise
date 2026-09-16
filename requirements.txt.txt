@@ -1,0 +1,5 @@
+pystac-client
+stackstac
+matplotlib
+xarray
+dask
