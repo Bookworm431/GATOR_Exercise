@@ -27,10 +27,11 @@ git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.c
 
 # Navigate to the directory
 cd YOUR-REPO-NAME
-```
-## Issues Encountered
-During this exercise, I ran into and resolved a few technical hurdles:
-* **Package Installation Lock:** I encountered a `[WinError 32]` file-lock error when trying to install packages in the same cell as my active code. I resolved this by restarting the Jupyter kernel and running the `%pip install` command in an isolated cell at the top of the notebook.
-* **Divide-by-Zero Artifacts:** The edges of the satellite imagery contained empty `0` values, which threw a `RuntimeWarning` and created infinite values during the `(NIR - Red) / (NIR + Red)` calculation. I fixed this by implementing an `xarray` `.where()` filter to strictly constrain the NDVI values between -1 and 1 before calculating the spatial average.
+
 # Install the required Python libraries
 pip install -r requirements.txt
+```
+## Issues Encountered
+* **Package Installation Lock:** I encountered a `[WinError 32]` file-lock error when trying to install packages in the same cell as my active code. I resolved this by restarting the Jupyter kernel and running the `%pip install` command in an isolated cell at the top of the notebook.
+* **Divide-by-Zero Artifacts:** The edges of the satellite imagery contained empty `0` values, which threw a `RuntimeWarning` and created infinite values during the `(NIR - Red) / (NIR + Red)` calculation. I fixed this by implementing an `xarray` `.where()` filter to strictly constrain the NDVI values between -1 and 1 before calculating the spatial average.
+* **Remembering Python:** I will fully admit that initially I could not remember Python and had to ask Gemini more than a few questions about what everything was. I also had never used Juypter before. Loading Juypter software was actually the biggest hurdle I had with this project.
